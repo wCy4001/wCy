@@ -1,0 +1,71 @@
+function ZJ(){
+    this.value = 0
+    this.init()
+}
+
+ZJ.prototype = {
+    init(){
+        this.acenter = document.createElement("center")
+        this.aspan = document.createElement("span")
+        this.abutton_top = document.createElement("button")
+        this.abutton_bottom = document.createElement("button")
+        this.abutton_top.innerText = "+"
+        this.aspan.innerText = 0
+        this.abutton_bottom.innerText = "-"
+        this.abutton_top.addEventListener("click",this.add.bind(this))
+        this.abutton_bottom.addEventListener("click",this.sub.bind(this))
+        this.acenter.appendChild(this.aspan)
+        this.acenter.appendChild(this.abutton_top)
+        this.acenter.appendChild(this.abutton_bottom)
+        document.body.appendChild(this.acenter) /* ? */
+        this.acenter.style.width = "73px"
+        this.acenter.style.clear = "both"
+        this.aspan.style.outline = "none"
+        this.aspan.style.display = "block"
+        this.aspan.style.width = "50px"
+        this.aspan.style.height = "50px"
+        this.aspan.style.border = "1px solid gainsboro"
+        this.aspan.style.lineHeight = "50px"
+        this.aspan.style.textAlign = "center"
+        this.aspan.style.float = "left"
+        this.abutton_top.style.width = "21px"
+        this.abutton_top.style.display = "block"
+        this.abutton_top.style.height = "26px"
+        this.abutton_top.style.border = "none"
+        this.abutton_top.style.border = "1px solid gainsboro"
+        this.abutton_top.style.borderLeft = "none"
+        this.abutton_top.style.outline = "none"
+        this.abutton_top.style.background = "ghostwhite"
+        this.abutton_top.style.cursor = "pointer"
+        this.abutton_bottom.style.display = "block"
+        this.abutton_bottom.style.height = "26px"
+        this.abutton_bottom.style.width = "21px"
+        this.abutton_bottom.style.border = "none"
+        this.abutton_bottom.style.border = "1px solid gainsboro"
+        this.abutton_bottom.style.borderLeft = "none"
+        this.abutton_bottom.style.borderTop = "none"
+        this.abutton_bottom.style.outline = "none"
+        this.abutton_bottom.style.background = "ghostwhite"
+        this.abutton_bottom.style.cursor = "pointer"
+    },
+    add(){
+        this.value=this.aspan.innerText
+        this.value++
+        if(this.value>=200){
+            this.value = 200
+        }else if(this.value<=1){
+            this.value = 1
+        }
+        this.aspan.innerText  = this.value
+    },
+    sub(){
+        this.value=this.aspan.innerText
+        this.value--
+        if(this.value<=0){
+            this.value = 0
+        }else if(this.value>=200){
+            this.value = 200
+        }
+        this.aspan.innerText = this.value
+    }
+}
